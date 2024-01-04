@@ -1,4 +1,4 @@
-name : Simple workflow
+name : Simple workflow 2
 
 on : [push]
 
