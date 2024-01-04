@@ -35,9 +35,11 @@ jobs:
           path: artifacts/model.pkl  # Chemin vers le modèle
 
   test:
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
+      
       - name: Checkout code
         uses: actions/checkout@v2  # Récupère le code du dépôt
 
