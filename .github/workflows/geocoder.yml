@@ -24,4 +24,4 @@ jobs:
 
         -   name: Afficher adrress
             run: |
-                geocoder.py
+                python geocoder.py
