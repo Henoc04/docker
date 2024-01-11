@@ -1,0 +1,26 @@
+name : geocoder
+on: 
+  workflow_dispatch
+
+env:
+  API : ${{vars.api}}
+
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+        -   name: checkout
+            uses: actions/checkout@v2
+
+        -   name: Set up Python
+            uses: actions/setup-python@v2
+            with:
+             python-version: '3.8'  # Version Python à utiliser
+             
+        -   name: Install dependencies
+            run: |
+              python -m pip install --upgrade pip
+              pip install -r requirement.txt  
+        -   name: Afficher adrress
+            run: |
+                geocoder.py
