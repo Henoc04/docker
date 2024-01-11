@@ -2,10 +2,12 @@ name: Sequential Workflow
 
 on : 
   #[push]
-  #workflow_dispatch
-  push:
-    tags:
-     - 'V*'
+  workflow_dispatch
+  #push:
+   # tags:
+    # - 'V*'
+env:
+  MY_variable : ${{vars.CLASSIFICATION}}
 
 jobs:
   build:
