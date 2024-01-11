@@ -1,0 +1,11 @@
+name : env_var
+on: workflow_dispatch
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+        -   name: checkout
+            uses: actions/checkout@v2
+        -   name: Afficher Greeting dans le job 1
+            run: |
+                echo "la valeur de la variable est" ${{vars.Nom}}
