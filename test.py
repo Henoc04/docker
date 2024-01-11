@@ -25,7 +25,7 @@ if 'y_new' in locals():
     print(f"Accuracy on new data: {accuracy:.2f}")
 
 # Définir un seuil de classification
-threshold = float(os.environ["CLASSIFICATION"])
+threshold = float(os.environ["My_variable"])
 
 # Vérifier si le seuil est atteint
 classified_predictions = (predictions > threshold).astype(int)
