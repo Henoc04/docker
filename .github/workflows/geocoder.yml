@@ -3,7 +3,7 @@ on:
   workflow_dispatch
 
 env:
-  API : ${{vars.api}}
+  API : ${{secrets.api}}
 
 jobs:
     job1:
