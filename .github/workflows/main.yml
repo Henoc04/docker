@@ -7,7 +7,7 @@ on :
    # tags:
     # - 'V*'
 env:
-  MY_variable : ${{vars.CLASSIFICATION}}
+  CLASSIFICATION : ${{vars.CLASSIFICATION}}
 
 jobs:
   build:
