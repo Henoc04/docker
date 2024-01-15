@@ -1,8 +1,8 @@
 name: Sequential Workflow
 
 on : 
-  #[push]
-  workflow_dispatch
+  [push]
+  #workflow_dispatch
   #push:
    # tags:
     # - 'V*'
@@ -43,7 +43,7 @@ jobs:
   test:
     needs: build
     runs-on: ubuntu-latest
-
+    if: contains(github.event.head_commit.message, 'wifi')
     steps:
       
       - name: Checkout code
@@ -67,12 +67,8 @@ jobs:
         
       - name: Execute test.py
         if: ${{ vars.CLASSIFICATION > 0 && vars.CLASSIFICATION < 1 }}
-        run: |
-          commit_message=$(git log -1 --pretty=%B)
-          if [[ $commit_message == *"wifi"* ]]; then
-            run: python test.py  # Exécute test.py qui utilisera le modèle st
-          fi
-
+        run: python test.py  # Exécute test.py qui utilisera le modèle st
+        
   deploy:
     needs: test
     runs-on: ubuntu-latest
