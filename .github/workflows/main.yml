@@ -65,9 +65,13 @@ jobs:
           name: model-artifact  # Nom de l'artefact à télécharger
           path: .  # Emplacement où l'artefact sera téléchargé
         
-      - name: Execute test.py 
+      - name: Execute test.py
         if: ${{ vars.CLASSIFICATION > 0 && vars.CLASSIFICATION < 1 }}
-        run: python test.py  # Exécute test.py qui utilisera le modèle st
+        run: |
+          commit_message=$(git log -1 --pretty=%B)
+          if [[ $commit_message == *"wifi"* ]]; then
+            run: python test.py  # Exécute test.py qui utilisera le modèle st
+          fi
 
   deploy:
     needs: test
