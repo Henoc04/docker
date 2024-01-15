@@ -60,7 +60,7 @@ jobs:
           pip install -r requirement.txt
 
       - name: Download artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v2 
         with:
           name: model-artifact  # Nom de l'artefact à télécharger
           path: .  # Emplacement où l'artefact sera téléchargé
