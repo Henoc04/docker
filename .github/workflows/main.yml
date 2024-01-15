@@ -64,7 +64,7 @@ jobs:
         with:
           name: model-artifact  # Nom de l'artefact à télécharger
           path: .  # Emplacement où l'artefact sera téléchargé
-
+        if: 0 < ${{vars.CLASSIFICATION}} < 1
       - name: Execute test.py
         run: python test.py  # Exécute test.py qui utilisera le modèle st
 
